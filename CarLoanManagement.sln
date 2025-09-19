@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36511.14 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLoanManagement", "CarLoanManagement\CarLoanManagement.csproj", "{BF440374-F514-4509-9E03-2B53D663505E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLoanManagement.Tests", "CarLoanManagement.Tests\CarLoanManagement.Tests.csproj", "{9E855EC9-598E-40C5-A1B5-2CF30A783FB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF440374-F514-4509-9E03-2B53D663505E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF440374-F514-4509-9E03-2B53D663505E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF440374-F514-4509-9E03-2B53D663505E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF440374-F514-4509-9E03-2B53D663505E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E855EC9-598E-40C5-A1B5-2CF30A783FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E855EC9-598E-40C5-A1B5-2CF30A783FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E855EC9-598E-40C5-A1B5-2CF30A783FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E855EC9-598E-40C5-A1B5-2CF30A783FB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F146DB82-3FFE-4562-A049-0EA57B3B38DC}
+	EndGlobalSection
+EndGlobal

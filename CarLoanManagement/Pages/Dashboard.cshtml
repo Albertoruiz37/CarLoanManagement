@@ -1,0 +1,109 @@
+﻿@page
+@model CarLoanManagement.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Welcome, @User.Identity?.Name!</h1>
+            <p class="lead">Manage your car loans</p>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var car in Model.Cars)
+        {
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">@car.Year @car.Make @car.Model</h5>
+                        @if (car.Loan != null)
+                        {
+                            <span class="badge @(car.Loan.IsPaidOff ? "bg-success" : "bg-warning")">
+                                @car.Loan.LoanType
+                            </span>
+                        }
+                    </div>
+                    <div class="card-body">
+                        <p><strong>VIN:</strong> @car.VIN</p>
+
+                        @if (car.Loan != null)
+                        {
+                            if (car.Loan.IsPaidOff)
+                            {
+                                <div class="alert alert-success">
+                                    <h6>✓ Paid Off</h6>
+                                    <p class="mb-0">Paid off by: <strong>@car.Loan.PaidOffBy</strong></p>
+                                    <p class="mb-0">Date: @car.Loan.PaidOffDate?.ToString("MM/dd/yyyy")</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-warning">
+                                    <h6>Outstanding Balance</h6>
+                                    <p class="mb-2"><strong>Payoff Amount:</strong> @car.Loan.PayoffAmount.ToString("C")</p>
+                                    <p class="mb-2"><strong>Original Amount:</strong> @car.Loan.OriginalAmount.ToString("C")</p>
+                                    <p class="mb-0"><strong>Start Date:</strong> @car.Loan.StartDate.ToString("MM/dd/yyyy")</p>
+                                </div>
+
+                                <form method="post" asp-page-handler="PayoffLoan">
+                                    <input type="hidden" name="CarId" value="@car.Id" />
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Your Name:</label>
+                                        <input type="text" name="Name" class="form-control" required />
+                                    </div>
+                                    <button type="submit" class="btn btn-success"
+                                            onclick="return confirm('Are you sure you want to pay off this loan?')">
+                                        Pay Off Loan
+                                    </button>
+                                </form>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-info">
+                                <p class="mb-0">No active loan for this vehicle.</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (!Model.Cars.Any())
+    {
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <h5>No Cars Found</h5>
+                    <p>You don't have any cars associated with your account.</p>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <a href="/Logout" class="btn btn-outline-secondary">Logout</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border: 1px solid #dee2e6;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .badge {
+        font-size: 0.8em;
+    }
+
+    .alert h6 {
+        margin-bottom: 0.5rem;
+    }
+</style>
