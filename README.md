@@ -61,6 +61,10 @@ The solution follows clean architecture principles with clear separation of conc
    - Open browser to `https://localhost:5001` or `http://localhost:5000` (or check your own instance port)
    - Use demo credentials to login
 
+or 
+You can access the app on the following link it was deployed on Azure using CI conected via git pipelines 
+carloanmanagement-a3debtbwh5a3gceq.canadacentral-01.azurewebsites.net
+
 ### Demo Accounts & Sample Data
 
 The application comes with comprehensive sample data to demonstrate all features:
