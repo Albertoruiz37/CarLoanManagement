@@ -63,7 +63,7 @@ The solution follows clean architecture principles with clear separation of conc
 
 6.  **Access the application via Azure**:
     -You can access the app on the following link it was deployed on Azure using CI conected via git pipelines 
-      [Car loan management](carloanmanagement-a3debtbwh5a3gceq.canadacentral-01.azurewebsites.net)
+      carloanmanagement-a3debtbwh5a3gceq.canadacentral-01.azurewebsites.net
 
 ### Demo Accounts & Sample Data
 
